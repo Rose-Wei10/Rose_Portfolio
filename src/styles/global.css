@@ -5,9 +5,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -87,20 +85,6 @@ body {
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
-  .contact-buttons {
-    justify-content: center;
-  }
-  
-  .contact-container {
-    padding: 1rem;
-  }
-  
-  .projects-container {
-    padding: 1rem;
-  }
-}
-
 .about-container {
   width: 100%;
   padding: 2rem;
@@ -110,16 +94,29 @@ body {
 }
 
 .about-header {
-  margin-bottom: 2rem;
-  margin-left: 2rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
+
 
 .avatar-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  align-items: center;
 }
+
+.avatar-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.fixed-avatar {
+  width: 18rem !important;  /* 288px */
+  height: 18rem !important;
+  border-radius: 50%;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+}
+
 
 /* Resume.tsx styles */
 .resume-container {
@@ -178,8 +175,109 @@ body {
   margin-top: 2rem;
 }
 
-/* Responsive design */
+
+.skills-card {
+  height: 100%;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.education-card {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.resume-container {
+  width: 100%;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom progress bar colors */
+.ant-progress-bg {
+  background: linear-gradient(to right, #108ee9, #87d068);
+}
+
+.welcome-text {
+  opacity: 0;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.welcome-text.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-button {
+  margin-top: 2rem;
+  color: white;
+  border-color: white;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-button:hover {
+  opacity: 1;
+  color: white;
+  border-color: white;
+}
+
+.section-title,
+h1.ant-typography {
+font-family: 'Playfair Display', serif !important;
+font-weight: 600 !important;
+letter-spacing: 0.02em;
+}
+
+/* Name in About section */
+h2.ant-typography {
+font-family: 'Playfair Display', serif !important;
+font-weight: 500 !important;
+}
+
+/* Subtitles (like your role/position) */
+h4.ant-typography {
+font-family: 'Quicksand', sans-serif !important;
+font-weight: 600 !important;
+letter-spacing: 0.01em;
+}
+
+/* Regular text/paragraphs */
+.ant-typography {
+font-family: 'Quicksand', sans-serif !important;
+font-size: 1.1rem;
+line-height: 1.8;
+}
+/* Buttons */
+.ant-btn {
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 500;
+}
+
+/* Timeline and card titles */
+.ant-card-head-title,
+.ant-timeline-item-head {
+  font-family: 'Quicksand', sans-serif !important;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
+  .fixed-avatar {
+    width: 15rem !important;  /* 240px */
+    height: 15rem !important;
+  }
+
   .header-content {
     flex-direction: column;
     padding: 0.5rem;
@@ -196,5 +294,52 @@ body {
   .main-content {
     padding-top: 110px; /* Adjusted for mobile header height */
   }
+  .resume-container {
+    padding: 1rem;
+  }
+
+  .contact-buttons {
+    justify-content: center;
+  }
+  
+  .contact-container {
+    padding: 1rem;
+  }
+  
+  .projects-container {
+    padding: 1rem;
+  }
+  
+  .skills-card,
+  .education-card {
+    margin-bottom: 1rem;
+  }
+
+  .ant-typography {
+    font-size: 1.15rem;
+  }
+  
+  .welcome-text {
+    font-size: 3.5rem !important;
+  }
+  
+  .section-title {
+    font-size: 2.5rem !important;
+  }
 }
 
+.ant-typography {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
