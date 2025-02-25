@@ -16,6 +16,7 @@ import Resume from './components/Resume';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import './App.css';
 
 const { Header, Content } = Layout;
@@ -144,13 +145,13 @@ export default function App() {
           )}
         </div>
       </Header>
+
       <div className="landing-section">
-      <Landing />
+        <Landing />
       </div>
 
       <Content>
-
-        <section id="about" className=" about-section">
+        <section id="about" className="about-section">
           <AboutMe />
         </section>
 
@@ -165,11 +166,15 @@ export default function App() {
         <section id="projects" className="projects-section">
           <Projects />
         </section>
-
-        <section id="contact" className=" contact-section">
-          <Contact />
-        </section>
       </Content>
+      
+      {/* Contact section outside Content */}
+      <section id="contact" className="contact-section">
+        <Contact />
+      </section>
+      
+      {/* Footer */}
+      <Footer />
     </Layout>
   );
 }

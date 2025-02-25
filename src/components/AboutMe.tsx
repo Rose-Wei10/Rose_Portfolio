@@ -8,7 +8,7 @@ const { Title, Paragraph } = Typography;
 export default function AboutMe() {
   const handleResumeClick = () => {
     // Replace with your actual resume URL
-    window.open('/https://docs.google.com/document/d/1sbmZ3L64xzkz6GPhovuV-o50C3C9MkAW3xI5opbWAa0/edit?usp=sharing', '_blank');
+    window.open('https://docs.google.com/document/d/1sbmZ3L64xzkz6GPhovuV-o50C3C9MkAW3xI5opbWAa0/edit?usp=sharing', '_blank');
     // Or for download:
     // const link = document.createElement('a');
     // link.href = '/path-to-your-resume.pdf';
