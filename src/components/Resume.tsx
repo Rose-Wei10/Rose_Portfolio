@@ -1,69 +1,78 @@
 // components/Resume.tsx
-import { Typography, Timeline, Card, Row, Col, Progress, Divider } from 'antd';
+import { Typography, Timeline, Row, Col } from 'antd';
+import { useState, useEffect } from 'react';
+import { 
+  ReadOutlined,
+  CodeOutlined,
+  ToolOutlined
+} from '@ant-design/icons';
+import '../styles/resume.css';
 
 const { Title, Paragraph } = Typography;
 
 export default function Resume() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const resumeSection = document.getElementById('resume');
+      if (resumeSection) {
+        const rect = resumeSection.getBoundingClientRect();
+        setIsVisible(rect.top < window.innerHeight * 0.7);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial render
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const skillCategories = {
     programmingLanguages: [
-      { name: 'Java', level: 90 },
+      { name: 'Java', level: 100 },
+      { name: 'JavaScript & TypeScript', level: 95 },
+      { name: 'HTML5/CSS3', level: 90 },
       { name: 'Python', level: 85 },
-      { name: 'C', level: 80 },
-      { name: 'C#', level: 85 },
-      { name: 'C++', level: 80 },
-      { name: 'TypeScript', level: 90 },
-      { name: 'JavaScript', level: 90 },
+      { name: 'C', level: 75 },
+      { name: 'C++', level: 70 },
     ],
     toolsAndTechnologies: [
-      { name: 'Git', level: 85 },
-      { name: 'Unity', level: 80 },
-      { name: 'Linux', level: 75 },
-      { name: 'AWS', level: 70 },
-      { name: 'Vercel', level: 85 },
-      { name: 'Posthog', level: 75 },
-      { name: 'ClickHouse', level: 70 },
-      { name: 'Pandas', level: 80 },
+      { name: 'Git', level: 100 },
+      { name: 'React', level: 95 },
+      { name: 'Unity', level: 90 },
       { name: 'Next.js', level: 85 },
       { name: 'PostgreSQL', level: 80 },
-    ],
-    frontend: [
-      { name: 'React', level: 90 },
-      { name: 'React Native', level: 85 },
-      { name: 'HTML5', level: 90 },
-      { name: 'CSS3', level: 85 },
-    ],
-    backend: [
-      { name: 'Node.js', level: 85 },
-      { name: 'SQL', level: 80 },
+      { name: 'Linux', level: 75 },
     ],
   };
 
-  const renderSkillSection = (title: string, skills: Array<{ name: string; level: number }>) => (
-    <div style={{ marginBottom: '2rem' }}>
-      <Title level={4} style={{ marginBottom: '1rem' }}>
-        {title}
-      </Title>
-      <Row gutter={[16, 16]}>
-        {skills.map((skill) => (
+  const renderSkillSection = (title: string, skills: Array<{ name: string; level: number }>, icon: React.ReactNode) => (
+    <div className={`skill-section ${isVisible ? 'animate-in' : ''}`}>
+      <div className="skill-header">
+        {icon}
+        <Title level={3} className="skill-title">{title}</Title>
+      </div>
+      <Row gutter={[16, 8]} className="skill-grid">
+        {skills.map((skill, index) => (
           <Col xs={24} sm={12} key={skill.name}>
-            <div style={{ marginBottom: '0.5rem' }}>
-              <div style={{ 
-                display: 'flex', 
-                justifyContent: 'space-between', 
-                marginBottom: '0.25rem' 
-              }}>
-                <span>{skill.name}</span>
-                <span>{skill.level}%</span>
+            <div 
+              className="skill-item" 
+              style={{ animationDelay: `${0.1 + (index * 0.1)}s` }}
+            >
+              <div className="skill-info">
+                <span className="skill-name">{skill.name}</span>
+                <span className="skill-level">{skill.level}%</span>
               </div>
-              <Progress 
-                percent={skill.level} 
-                showInfo={false} 
-                strokeColor={{
-                  '0%': '#108ee9',
-                  '100%': '#87d068',
-                }}
-                style={{ marginBottom: '0.5rem' }}
-              />
+              <div className="skill-bar-container">
+                <div 
+                  className="skill-bar-fill" 
+                  style={{ 
+                    width: isVisible ? `${skill.level}%` : '0%',
+                    background: `linear-gradient(90deg, #108ee9 ${skill.level / 2}%, #87d068)`
+                  }}
+                ></div>
+              </div>
             </div>
           </Col>
         ))}
@@ -72,42 +81,72 @@ export default function Resume() {
   );
 
   return (
-    <div className="resume-container">
-      {/* <Title level={1} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        Resume
-      </Title> */}
-      
-      <Row gutter={[32, 32]}>
-        <Col xs={24} lg={12}>
-          <Card title="Education" className="education-card">
+    <div className="resume-background">
+      <div className="resume-inner-container">
+        <Title level={1} className="section-title resume-title">
+          Education
+        </Title>
+        
+        <div className="education-content">
+          <div className={`education-section ${isVisible ? 'animate-in' : ''}`}>
+            <div className="education-header">
+              <ReadOutlined className="education-icon" />
+              <Title level={3} className="education-title">Academic Background</Title>
+            </div>
+            
             <Timeline
+              className="education-timeline"
               items={[
                 {
                   children: (
-                    <>
-                      <Title level={4}>Western Washington University</Title>
-                      <Paragraph>B.S. in Computer Science • 2020 - 2024</Paragraph>
-                      <Paragraph>Brief description of your studies and achievements</Paragraph>
-                    </>
+                    <div className="education-item">
+                      <Title level={4} className="university-name">Western Washington University</Title>
+                      <div className="education-details">
+                        <div className="education-degree">B.S. in Computer Science</div>
+                        <div className="education-years">2020 - 2024</div>
+                      </div>
+                      <Paragraph className="education-description">
+                        Brief description of your studies and achievements. You can talk about important projects, courses you excelled in, or other academic accomplishments.
+                      </Paragraph>
+                    </div>
                   ),
                 },
               ]}
             />
-          </Card>
-        </Col>
+          </div>
+        </div>
         
-        <Col xs={24} lg={12}>
-          <Card title="Skills" className="skills-card">
-            {renderSkillSection('Programming Languages', skillCategories.programmingLanguages)}
-            <Divider />
-            {renderSkillSection('Tools and Technologies', skillCategories.toolsAndTechnologies)}
-            <Divider />
-            {renderSkillSection('Frontend', skillCategories.frontend)}
-            <Divider />
-            {renderSkillSection('Backend', skillCategories.backend)}
-          </Card>
-        </Col>
-      </Row>
+        <Title level={1} className="section-title skills-main-title">
+          Skills
+        </Title>
+        
+        <div className="skills-content">
+          <Row gutter={[24, 24]}>
+            <Col xs={24} lg={12} className="skills-column">
+              {renderSkillSection(
+                'Programming Languages', 
+                skillCategories.programmingLanguages,
+                <CodeOutlined className="skill-icon" />
+              )}
+            </Col>
+            
+            <Col xs={24} lg={12} className="skills-column">
+              {renderSkillSection(
+                'Tools and Technologies', 
+                skillCategories.toolsAndTechnologies,
+                <ToolOutlined className="skill-icon" />
+              )}
+            </Col>
+          </Row>
+        </div>
+      </div>
+      
+      {/* Animated background elements */}
+      <div className="animated-circles">
+        <div className="circle circle-1"></div>
+        <div className="circle circle-2"></div>
+        <div className="circle circle-3"></div>
+      </div>
     </div>
   );
 }

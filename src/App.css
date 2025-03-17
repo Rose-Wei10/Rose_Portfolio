@@ -89,7 +89,6 @@ mobile-menu-button {
 }
 
 .about-section,
-.resume-section,
 .experience-section,
 .projects-section,
 .contact-section {
@@ -97,6 +96,16 @@ mobile-menu-button {
   border-radius: 1rem;
   margin: 2rem auto;
   width: 100%;
+}
+
+.resume-section {
+  background: linear-gradient(135deg, #051937, #004d7a, #008793);
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -174,8 +183,8 @@ mobile-menu-button {
   height: 100vh;
   width: 100%;
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../public/background2.jpg'); /* Replace with actual image path */
+  background-image: 
+    url('../public/background5.jpg'); /* Replace with actual image path */
   background-size: cover;
   background-position: center;
 

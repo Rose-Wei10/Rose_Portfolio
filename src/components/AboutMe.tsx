@@ -1,60 +1,94 @@
 // components/AboutMe.tsx
-import { Card, Row, Col, Typography, Avatar, Button } from 'antd';
+import { Row, Col, Typography, Button } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
-import '../styles/global.css';
+import { useEffect, useState } from 'react';
+import '../styles/aboutme.css';
 
 const { Title, Paragraph } = Typography;
 
 export default function AboutMe() {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+    
+    const handleScroll = () => {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const rect = aboutSection.getBoundingClientRect();
+        setIsVisible(rect.top < window.innerHeight * 0.7);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial render
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleResumeClick = () => {
-    // Replace with your actual resume URL
     window.open('https://docs.google.com/document/d/1sbmZ3L64xzkz6GPhovuV-o50C3C9MkAW3xI5opbWAa0/edit?usp=sharing', '_blank');
-    // Or for download:
-    // const link = document.createElement('a');
-    // link.href = '/path-to-your-resume.pdf';
-    // link.download = 'Rose_Wei_Resume.pdf';
-    // link.click();
   };
 
   return (
-    <div className="about-container">
-      <div className="about-header">
-        <Title level={1}>About Me</Title>
+    <div className="about-background">
+      <div className="about-container">
+        <div className={`about-content ${isVisible ? 'animate-in' : ''}`}>
+          <Title level={1} className="about-title">About Me</Title>
+          
+          <Row gutter={[48, 48]} align="middle" className="about-row">
+            <Col xs={24} md={12} className="about-image-col">
+              <div className="about-image-container">
+                <div className="about-image-wrapper">
+                  <img src="/rose_image.jpg" alt="Rose Wei" className="about-image" />
+                  <div className="image-decoration"></div>
+                </div>
+                <div className="pulse-circle"></div>
+              </div>
+            </Col>
+            
+            <Col xs={24} md={12} className="about-text-col">
+              <div className="about-intro">
+                <Title level={2} className="name-title">Rose Wei</Title>
+                <Title level={4} className="role-title">Software Engineer</Title>
+                
+                <Button 
+                  icon={<DownloadOutlined />} 
+                  size="large"
+                  onClick={handleResumeClick}
+                  className="resume-button"
+                >
+                  Download Resume
+                </Button>
+                
+                <div className="about-paragraphs">
+                  <Paragraph className="about-paragraph">
+                  As a recent Computer Science graduate from Western Washington University, 
+                  I'm passionate about building robust applications as a full-stack developer 
+                  with a particular interest in backend technologies. With experience developing 
+                  both web applications and 3D games, I continuously expand my technical toolkit 
+                  while solving complex problems through clean, efficient code. Currently based 
+                  in Washington state, I'm eager to contribute my diverse skill set to innovative 
+                  projects that make a meaningful impact.
+                  </Paragraph>
+                  
+                  {/* <Paragraph className="about-paragraph">
+                    Add more details about your background, what drives you, and what you're
+                    looking to achieve in your career.
+                  </Paragraph> */}
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </div>
       </div>
-      <Row gutter={[32, 32]} align="middle">
-        <Col xs={24} md={12}>
-          <div className="avatar-container">
-            <div className="avatar-wrapper">
-              <Avatar
-                src="/rose_image.jpg"
-                className="fixed-avatar"
-              />
-            </div>
-          </div>
-        </Col>
-        <Col xs={24} md={12}>
-          <Title level={2}>Rose Wei</Title>
-          <Title level={4}>Software Engineer</Title>
-          <Button 
-            type="primary" 
-            icon={<DownloadOutlined />} 
-            size="large"
-            onClick={handleResumeClick}
-            className="resume-button"
-          >
-            Download Resume
-          </Button>
-          <Paragraph style={{ marginTop: '2rem' }}>
-            Write a brief introduction about yourself here. Highlight your key skills,
-            interests, and what you're passionate about. This is your chance to make
-            a great first impression!
-          </Paragraph>
-          <Paragraph>
-            Add more details about your background, what drives you, and what you're
-            looking to achieve in your career.
-          </Paragraph>
-        </Col>
-      </Row>
+      
+      {/* Decorative elements */}
+      <div className="about-decorations">
+        <div className="decoration-element element-1"></div>
+        <div className="decoration-element element-2"></div>
+        <div className="decoration-element element-3"></div>
+      </div>
     </div>
   );
 }

@@ -9,7 +9,6 @@ import {
   PhoneOutlined
 } from '@ant-design/icons';
 import { useState } from 'react';
-import emailjs from 'emailjs-com';  // Import EmailJS from npm package
 import '../styles/global.css';
 import '../styles/contactS.css';
 
@@ -24,23 +23,34 @@ export default function Contact() {
     try {
       setSending(true);
       
-      const templateParams = {
-        from_name: values.name,
-        from_email: values.email,
+      // Prepare the data for our API
+      const messageData = {
+        name: values.name,
+        email: values.email,
+        subject: 'Contact Form Submission', // Default subject
         message: values.message
       };
 
-      // Replace these with your own values after signing up at emailjs.com
-      const serviceID = 'service_jkznzd9';
-      const templateID = '__ejs-test-mail-service__';
-      const userID = 'R36hthdEeCgqUn01vMcz9';
+      // Send the data to our API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(messageData),
+      });
 
-      await emailjs.send(serviceID, templateID, templateParams, userID);
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      // Show success message
+      message.success('Message sent successfully! I will get back to you soon.');
       
-      message.success('Message sent successfully!');
+      // Reset the form
       form.resetFields();
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('Error sending message:', error);
       message.error('Failed to send message. Please try again later.');
     } finally {
       setSending(false);

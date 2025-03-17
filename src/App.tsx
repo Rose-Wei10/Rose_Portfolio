@@ -5,6 +5,7 @@ import type { MenuProps } from 'antd';
 import {
   UserOutlined,
   FileOutlined,
+  ReadOutlined,
   ProjectOutlined,
   ExperimentOutlined,
   ContactsOutlined,
@@ -84,8 +85,8 @@ export default function App() {
     },
     {
       key: 'resume',
-      icon: <FileOutlined />,
-      label: 'Resume',
+      icon: <ReadOutlined />,
+      label: 'Education', 
       onClick: () => scrollToSection('resume'),
     },
     {
@@ -150,23 +151,22 @@ export default function App() {
         <Landing />
       </div>
 
-      <Content>
-        <section id="about" className="about-section">
+        <section id="about" className="">
           <AboutMe />
         </section>
 
-        <section id="resume" className="resume-section">
+        <section id="resume" className="">
           <Resume />
         </section>
 
-        <section id="experience" className="experience-section">
+        <section id="experience" className="">
           <Experience />
         </section>
 
-        <section id="projects" className="projects-section">
+        <section id="projects" className="">
           <Projects />
         </section>
-      </Content>
+      
       
       {/* Contact section outside Content */}
       <section id="contact" className="contact-section">
