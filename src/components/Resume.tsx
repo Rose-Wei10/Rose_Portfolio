@@ -1,4 +1,3 @@
-// components/Resume.tsx
 import { Typography, Timeline, Row, Col } from 'antd';
 import { useState, useEffect } from 'react';
 import { 
@@ -81,7 +80,7 @@ export default function Resume() {
   );
 
   return (
-    <div className="resume-background">
+    <div className="resume-background" id="resume">
       <div className="resume-inner-container">
         <Title level={1} className="section-title resume-title">
           Education
@@ -100,13 +99,36 @@ export default function Resume() {
                 {
                   children: (
                     <div className="education-item">
-                      <Title level={4} className="university-name">Western Washington University</Title>
+                      <Title level={4} className="university-name">
+                        University of Illinois Urbana-Champaign
+                      </Title>
+                      <div className="education-details">
+                        <div className="education-degree">M.S. in Computer Science</div>
+                        <div className="education-years">2025 - Present</div>
+                      </div>
+                      <Paragraph className="education-description">
+                        Pursuing a Master’s in Computer Science with focus on Machine Learning, Data Systems, and Applied AI. 
+                        Engaging in advanced coursework and research that bridges theory and large-scale system implementation.
+                        Collaborating with peers on real-world projects exploring intelligent systems and efficient data pipelines.
+                      </Paragraph>
+                    </div>
+                  ),
+                },
+                {
+                  children: (
+                    <div className="education-item">
+                      <Title level={4} className="university-name">
+                        Western Washington University
+                      </Title>
                       <div className="education-details">
                         <div className="education-degree">B.S. in Computer Science</div>
                         <div className="education-years">2020 - 2024</div>
                       </div>
                       <Paragraph className="education-description">
-                        Brief description of your studies and achievements. You can talk about important projects, courses you excelled in, or other academic accomplishments.
+                        Completed a comprehensive undergraduate program emphasizing software engineering, algorithms, 
+                        and data structures. Developed strong foundations in full-stack development and system design 
+                        through academic projects, internships, and research. Graduated with distinction and a passion 
+                        for building intelligent, efficient software systems.
                       </Paragraph>
                     </div>
                   ),

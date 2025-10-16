@@ -367,3 +367,58 @@
     height: 30px;
   }
 }
+
+/* Horizontal scroll layout */
+.projects-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2rem 0;
+}
+
+.projects-inline {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+/* Each project card size matches image */
+.project-card {
+  flex: 0 0 auto;
+  width: fit-content !important;
+  max-width: 800px;
+  margin: 0;
+}
+
+/* Keep image ratio and prevent stretching */
+.project-image-container {
+  position: relative;
+  width: 800px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background-color: #174181;
+  padding: 10px;
+}
+
+/* Hide scrollbar but keep scrollable behavior */
+.projects-scroll-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(36, 189, 202, 0.5);
+  border-radius: 5px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(36, 189, 202, 0.8);
+}
