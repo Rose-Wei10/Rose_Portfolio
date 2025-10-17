@@ -63,13 +63,12 @@ export default function AboutMe() {
                 
                 <div className="about-paragraphs">
                   <Paragraph className="about-paragraph">
-                  As a recent Computer Science graduate from Western Washington University, 
-                  I'm passionate about building robust applications as a full-stack developer 
-                  with a particular interest in backend technologies. With experience developing 
-                  both web applications and 3D games, I continuously expand my technical toolkit 
-                  while solving complex problems through clean, efficient code. Currently based 
-                  in Washington state, I'm eager to contribute my diverse skill set to innovative 
-                  projects that make a meaningful impact.
+                  As a recent Master’s graduate in Computer Science from the University of Illinois Urbana-Champaign, 
+                  I’m passionate about building robust and scalable applications as a full-stack developer, with a 
+                  particular focus on backend technologies. With experience developing both web applications and 3D 
+                  games, I continuously expand my technical toolkit and approach complex problems with clean, efficient, 
+                  and well-structured code. Currently based in Washington state, I’m eager to apply my diverse skills to 
+                  innovative projects that create meaningful impact.
                   </Paragraph>
                   
                   {/* <Paragraph className="about-paragraph">
