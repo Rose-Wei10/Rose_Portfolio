@@ -120,10 +120,10 @@ export default function App() {
 
   return (
     <Layout className="layout">
-      <Header className={`header visible`}>
-        <div className="header-content">
+      <Header className="header visible">
+        <div className="header-inner">
           <div className="logo">Rose Portfolio</div>
-          
+
           {isMobile ? (
             <>
               <Button
@@ -131,6 +131,7 @@ export default function App() {
                 icon={<MenuOutlined />}
                 onClick={() => setMobileMenuOpen(true)}
               />
+
               <Drawer
                 title="Menu"
                 placement="right"
