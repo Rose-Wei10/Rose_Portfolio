@@ -52,14 +52,13 @@ export default function AboutMe() {
                 <Title level={2} className="name-title">Rose Wei</Title>
                 <Title level={4} className="role-title">Software Engineer</Title>
                 
-                {/* <Button 
-                  icon={<DownloadOutlined />} 
-                  size="large"
-                  onClick={handleResumeClick}
-                  className="resume-button"
-                >
-                  Download Resume
-                </Button> */}
+                <div className="about-tech-stack">
+                  <span>React</span>
+                  <span>TypeScript</span>
+                  <span>Node.js</span>
+                  <span>Python</span>
+                  <span>AWS</span>
+                </div>
                 
                 <div className="about-paragraphs">
                   <Paragraph className="about-paragraph">
@@ -67,7 +66,7 @@ export default function AboutMe() {
                   I’m passionate about building robust and scalable applications as a full-stack developer, with a 
                   particular focus on backend technologies. With experience developing both web applications and 3D 
                   games, I continuously expand my technical toolkit and approach complex problems with clean, efficient, 
-                  and well-structured code. Currently based in Washington state, I’m eager to apply my diverse skills to 
+                  and well-structured code. Currently based in Seattle, Washington, I’m eager to apply my diverse skills to 
                   innovative projects that create meaningful impact.
                   </Paragraph>
                   

@@ -1,46 +1,152 @@
-# Getting Started with Create React App
+# 🌸 Rose Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern and responsive personal portfolio website built with React, TypeScript, and Ant Design to showcase my projects, experience, and technical skills.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- Responsive modern UI
+- Smooth scrolling navigation
+- Animated landing and about sections
+- Interactive project showcase
+- Mobile-friendly navigation drawer
+- Resume download support
+- Clean gradient-based design system
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Frontend
+- React
+- TypeScript
+- Ant Design
+- CSS3
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Tools & Libraries
+- Vite
+- React Hooks
+- Ant Design Icons
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Project Structure
 
-### `npm run build`
+```bash
+src/
+├── components/
+│   ├── AboutMe.tsx
+│   ├── Contact.tsx
+│   ├── Experience.tsx
+│   ├── Footer.tsx
+│   ├── Landing.tsx
+│   ├── Projects.tsx
+│   └── Resume.tsx
+│
+├── styles/
+│   ├── aboutme.css
+│   ├── projects.css
+│   └── ...
+│
+├── App.tsx
+└── App.css
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Featured Projects
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Academic World Dashboard
+A full-stack analytics dashboard for exploring academic publications and university research performance.
 
-### `npm run eject`
+**Tech Used:**  
+Python, Dash, Plotly, MySQL, MongoDB, Neo4j
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Anniversary Report Tool
+An automated employee milestone tracking and notification system developed during the GeoEngineers Corporate Alliance Program.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Tech Used:**  
+React, PostgreSQL, Node.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### The Wizard's Apprentice
+A 3D platformer combat game developed in Unity with progressive abilities and level systems.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Tech Used:**  
+C#, Unity, 3D Modeling
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📸 Screenshots
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> Add screenshots of your landing page, projects section, and about section here.
+
+```md
+![Portfolio Screenshot](./public/Preview1.png)
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/portfolio.git
+```
+
+Navigate into the project folder:
+
+```bash
+cd portfolio
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🌐 Deployment
+
+This project can be deployed using:
+
+- Vercel
+- Netlify
+- GitHub Pages
+
+---
+
+## 📄 Resume
+
+My resume is available directly from the portfolio website through the resume download button.
+
+---
+
+## 📫 Contact
+
+Feel free to connect with me:
+
+- LinkedIn: https://linkedin.com/in/your-link
+- GitHub: https://github.com/yourusername
+- Email: your.email@example.com
+
+---
+
+## 📌 Future Improvements
+
+- Add dark/light mode toggle
+- Add project filtering system
+- Improve animations and transitions
+- Add blog section
+- Add backend contact form integration
+
+---
+
+## 🪪 License
+
+This project is open-source and available under the MIT License.
