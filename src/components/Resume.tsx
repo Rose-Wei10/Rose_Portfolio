@@ -29,20 +29,30 @@ export default function Resume() {
 
   const skillCategories = {
     programmingLanguages: [
-      { name: 'Java', level: 100 },
-      { name: 'JavaScript & TypeScript', level: 95 },
-      { name: 'HTML5/CSS3', level: 90 },
-      { name: 'Python', level: 85 },
-      { name: 'C', level: 75 },
-      { name: 'C++', level: 70 },
+      { name: 'JavaScript', level: 95 },
+      { name: 'TypeScript', level: 92 },
+      { name: 'Python', level: 90 },
+      { name: 'Java', level: 88 },
+      { name: 'C#', level: 82 },
+      { name: 'C++', level: 75 },
     ],
-    toolsAndTechnologies: [
-      { name: 'Git', level: 100 },
-      { name: 'React', level: 95 },
-      { name: 'Unity', level: 90 },
-      { name: 'Next.js', level: 85 },
+
+    frameworksAndTools: [
+      { name: 'React / Next.js', level: 95 },
+      { name: 'Node.js', level: 88 },
+      { name: 'Dash / Plotly', level: 85 },
+      { name: 'Unity', level: 82 },
+      { name: 'Git / GitHub', level: 92 },
+      { name: 'Linux', level: 78 },
+    ],
+
+    databasesAndCloud: [
+      { name: 'MySQL', level: 88 },
+      { name: 'MongoDB', level: 82 },
+      { name: 'Neo4j', level: 78 },
       { name: 'PostgreSQL', level: 80 },
-      { name: 'Linux', level: 75 },
+      { name: 'REST APIs', level: 90 },
+      { name: 'AWS (Learning)', level: 65 },
     ],
   };
 
@@ -102,34 +112,62 @@ export default function Resume() {
                       <Title level={4} className="university-name">
                         University of Illinois Urbana-Champaign
                       </Title>
+
                       <div className="education-details">
-                        <div className="education-degree">M.S. in Computer Science</div>
-                        <div className="education-years">2025 - Present</div>
+                        <div className="education-degree">
+                          M.S. in Computer Science
+                        </div>
+
+                        <div className="education-years">
+                          2025 - Present
+                        </div>
                       </div>
+
                       <Paragraph className="education-description">
-                        Pursuing a Master’s in Computer Science with focus on Machine Learning, Data Systems, and Applied AI. 
-                        Engaging in advanced coursework and research that bridges theory and large-scale system implementation.
-                        Collaborating with peers on real-world projects exploring intelligent systems and efficient data pipelines.
+                        Focused on Applied AI, scalable systems, and data-driven software engineering.
+                        Building full-stack applications and intelligent systems through advanced
+                        coursework and collaborative research projects.
                       </Paragraph>
+
+                      <div className="education-tags">
+                        <span>Machine Learning</span>
+                        <span>Distributed Systems</span>
+                        <span>Data Engineering</span>
+                        <span>Applied AI</span>
+                      </div>
                     </div>
                   ),
                 },
+
                 {
                   children: (
                     <div className="education-item">
                       <Title level={4} className="university-name">
                         Western Washington University
                       </Title>
+
                       <div className="education-details">
-                        <div className="education-degree">B.S. in Computer Science</div>
-                        <div className="education-years">2020 - 2024</div>
+                        <div className="education-degree">
+                          B.S. in Computer Science
+                        </div>
+
+                        <div className="education-years">
+                          2020 - 2024
+                        </div>
                       </div>
+
                       <Paragraph className="education-description">
-                        Completed a comprehensive undergraduate program emphasizing software engineering, algorithms, 
-                        and data structures. Developed strong foundations in full-stack development and system design 
-                        through academic projects, internships, and research. Graduated with distinction and a passion 
-                        for building intelligent, efficient software systems.
+                        Developed strong foundations in software engineering, algorithms,
+                        full-stack development, and system design through academic projects,
+                        internships, and research collaboration.
                       </Paragraph>
+
+                      <div className="education-tags">
+                        <span>Software Engineering</span>
+                        <span>Algorithms</span>
+                        <span>Full-Stack Development</span>
+                        <span>Databases</span>
+                      </div>
                     </div>
                   ),
                 },
@@ -144,18 +182,26 @@ export default function Resume() {
         
         <div className="skills-content">
           <Row gutter={[24, 24]}>
-            <Col xs={24} lg={12} className="skills-column">
+            <Col xs={24} lg={8} className="skills-column">
               {renderSkillSection(
-                'Programming Languages', 
+                'Languages',
                 skillCategories.programmingLanguages,
                 <CodeOutlined className="skill-icon" />
               )}
             </Col>
-            
-            <Col xs={24} lg={12} className="skills-column">
+
+            <Col xs={24} lg={8} className="skills-column">
               {renderSkillSection(
-                'Tools and Technologies', 
-                skillCategories.toolsAndTechnologies,
+                'Frameworks & Tools',
+                skillCategories.frameworksAndTools,
+                <ToolOutlined className="skill-icon" />
+              )}
+            </Col>
+
+            <Col xs={24} lg={8} className="skills-column">
+              {renderSkillSection(
+                'Databases & Backend',
+                skillCategories.databasesAndCloud,
                 <ToolOutlined className="skill-icon" />
               )}
             </Col>

@@ -56,13 +56,13 @@
   }
   
   .education-content {
-    width: 85%;
+    width: min(1200px, 92%);
     margin: 0 auto;
   }
   
   .skills-content {
     display: flex;
-    width: 90%;
+    width: min(1200px, 92%);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -75,13 +75,24 @@
   
   /* Education Section */
   .education-section {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
-    padding: 2rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 28px;
+
+    padding: 2.5rem;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+      0 20px 50px rgba(0,0,0,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+
     transform: translateY(30px);
+
     opacity: 0;
+
     transition: all 0.8s ease;
   }
   
@@ -114,8 +125,12 @@
   
   .university-name {
     color: white !important;
-    font-size: 1.3rem !important;
-    margin-bottom: 0.5rem !important;
+
+    font-size: 1.45rem !important;
+
+    font-weight: 700 !important;
+
+    margin-bottom: 0.6rem !important;
   }
   
   .education-details {
@@ -136,8 +151,13 @@
   }
   
   .education-description {
-    color: rgba(255, 255, 255, 0.85) !important;
-    font-size: 0.95rem;
+    color: rgba(255,255,255,0.82) !important;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+
+    margin-top: 1rem;
   }
   
   .education-timeline {
@@ -174,18 +194,57 @@
   .education-item {
     padding-bottom: 1.5rem;
   }
+
+  .education-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.8rem;
+
+    margin-top: 1.2rem;
+  }
+
+  .education-tags span {
+    padding: 0.45rem 0.9rem;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: #dbeafe;
+
+    font-size: 0.85rem;
+
+    font-weight: 500;
+  }
   
   /* Skills Section */
   .skill-section {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 28px;
+
     padding: 2rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+      0 20px 50px rgba(0,0,0,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+
     margin-bottom: 2rem;
+
     transform: translateY(30px);
+
     opacity: 0;
+
     transition: all 0.8s ease;
+
     height: 100%;
   }
   
@@ -221,13 +280,29 @@
   }
   
   .skill-item {
-    margin-bottom: 1.25rem;
-    padding: 0 0.5rem;
+    margin-bottom: 1.4rem;
+
+    padding: 0.4rem 0.5rem;
+
+    border-radius: 14px;
+
+    transition: all 0.25s ease;
+
     transform: translateX(-20px);
+
     opacity: 0;
+
     animation-name: slideInRight;
+
     animation-duration: 0.5s;
+
     animation-fill-mode: forwards;
+  }
+
+  .skill-item:hover {
+    background: rgba(255,255,255,0.05);
+
+    transform: translateY(-2px);
   }
   
   .skill-info {
@@ -247,17 +322,27 @@
   }
   
   .skill-bar-container {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    height: 10px;
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 999px;
+
     overflow: hidden;
+
+    margin-top: 0.5rem;
   }
   
   .skill-bar-fill {
     height: 100%;
+
     width: 0;
-    border-radius: 4px;
+
+    border-radius: 999px;
+
     transition: width 1s ease;
+
+    box-shadow: 0 0 18px rgba(16,142,233,0.35);
   }
   
   /* Animated Background Elements */
@@ -344,3 +429,14 @@
       margin: 0;
     }
   }
+  @media (max-width: 992px) {
+  .education-content,
+  .skills-content {
+    width: 100%;
+  }
+
+  .education-section,
+  .skill-section {
+    padding: 1.5rem;
+  }
+}

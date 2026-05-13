@@ -1,33 +1,84 @@
-# 🌸 Rose Portfolio
+# Rose Portfolio
 
-A modern and responsive personal portfolio website built with React, TypeScript, and Ant Design to showcase my projects, experience, and technical skills.
+A modern and responsive personal portfolio website built with Next.js, React, TypeScript, and Ant Design.  
+Designed to showcase my background, technical skills, projects, and experience through a clean user interface, smooth animations, and responsive layouts.
 
-## ✨ Features
+---
+
+# Live Demo
+
+Coming Soon
+
+---
+
+# Features
 
 - Responsive modern UI
+- Animated landing page
 - Smooth scrolling navigation
-- Animated landing and about sections
 - Interactive project showcase
-- Mobile-friendly navigation drawer
-- Resume download support
-- Clean gradient-based design system
+- Professional experience timeline
+- Resume download functionality
+- Functional contact form
+- Mobile-friendly design
+- Glassmorphism-inspired styling
+- Section-based animations
 
-## 🛠️ Tech Stack
+---
 
-### Frontend
+# Sections
+
+## Hero Section
+- Animated introduction
+- Responsive navigation bar
+- Modern gradient background
+
+## About Me
+- Professional introduction
+- Animated profile image
+- Resume download button
+
+## Education & Skills
+- Technical skills showcase
+- Education timeline
+- Responsive card layout
+
+## Experience
+- Professional experience timeline
+- Interactive hover effects
+- Clean responsive design
+
+## Projects
+- Featured project cards
+- GitHub and live demo links
+- Modern project layout
+
+## Contact
+- Functional contact form
+- Email integration using FormSubmit
+- Social media links
+
+---
+
+# Tech Stack
+
+## Frontend
 - React
+- Next.js
 - TypeScript
 - Ant Design
 - CSS3
 
-### Tools & Libraries
-- Vite
-- React Hooks
-- Ant Design Icons
+## Services
+- FormSubmit
+
+## Deployment & Tools
+- GitHub
+- Vercel
 
 ---
 
-## 📂 Project Structure
+# Project Structure
 
 ```bash
 src/
@@ -35,66 +86,36 @@ src/
 │   ├── AboutMe.tsx
 │   ├── Contact.tsx
 │   ├── Experience.tsx
-│   ├── Footer.tsx
 │   ├── Landing.tsx
 │   ├── Projects.tsx
 │   └── Resume.tsx
 │
 ├── styles/
-│   ├── aboutme.css
-│   ├── projects.css
+│   ├── AboutMe.css
+│   ├── App.css
+│   ├── contactS.css
 │   └── ...
 │
-├── App.tsx
-└── App.css
+├── public/
+│   └── images/
+│
+└── App.tsx
 ```
 
 ---
 
-## 🚀 Featured Projects
-
-### Academic World Dashboard
-A full-stack analytics dashboard for exploring academic publications and university research performance.
-
-**Tech Used:**  
-Python, Dash, Plotly, MySQL, MongoDB, Neo4j
-
-### Anniversary Report Tool
-An automated employee milestone tracking and notification system developed during the GeoEngineers Corporate Alliance Program.
-
-**Tech Used:**  
-React, PostgreSQL, Node.js
-
-### The Wizard's Apprentice
-A 3D platformer combat game developed in Unity with progressive abilities and level systems.
-
-**Tech Used:**  
-C#, Unity, 3D Modeling
-
----
-
-## 📸 Screenshots
-
-> Add screenshots of your landing page, projects section, and about section here.
-
-```md
-![Portfolio Screenshot](./public/Preview1.png)
-```
-
----
-
-## ⚙️ Installation
+# Installation
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/yourusername/rose-portfolio.git
 ```
 
-Navigate into the project folder:
+Navigate into the project directory:
 
 ```bash
-cd portfolio
+cd rose-portfolio
 ```
 
 Install dependencies:
@@ -111,42 +132,40 @@ npm run dev
 
 ---
 
-## 🌐 Deployment
+# Contact Form
 
-This project can be deployed using:
-
-- Vercel
-- Netlify
-- GitHub Pages
+The contact form is powered by FormSubmit and sends messages directly to my email without requiring a backend server or database.
 
 ---
 
-## 📄 Resume
+# Future Improvements
 
-My resume is available directly from the portfolio website through the resume download button.
-
----
-
-## 📫 Contact
-
-Feel free to connect with me:
-
-- LinkedIn: https://linkedin.com/in/your-link
-- GitHub: https://github.com/yourusername
-- Email: your.email@example.com
+- Dark/light theme toggle
+- More advanced animations
+- Project filtering system
+- Blog section
+- AWS deployment integration
+- Additional accessibility improvements
 
 ---
 
-## 📌 Future Improvements
+# About Me
 
-- Add dark/light mode toggle
-- Add project filtering system
-- Improve animations and transitions
-- Add blog section
-- Add backend contact form integration
+I recently completed my Master’s degree in Computer Science at the University of Illinois Urbana-Champaign.  
+I enjoy building scalable full-stack applications, backend systems, and interactive user experiences while continuously improving my technical skills.
 
 ---
 
-## 🪪 License
+# Author
 
-This project is open-source and available under the MIT License.
+## Rose Wei
+
+- GitHub: https://github.com/Rose-Wei10
+- LinkedIn: https://www.linkedin.com/in/rose-wei/
+- Email: rosewei6@gmail.com
+
+---
+
+# License
+
+This project is open source and available under the MIT License.
