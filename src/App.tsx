@@ -1,181 +1,112 @@
-// src/App.tsx
-import { useState, useEffect } from 'react';
-import { Layout, Menu, Button, Drawer } from 'antd';
-import type { MenuProps } from 'antd';
-import {
-  UserOutlined,
-  FileOutlined,
-  ReadOutlined,
-  ProjectOutlined,
-  ExperimentOutlined,
-  ContactsOutlined,
-  MenuOutlined
-} from '@ant-design/icons';
-import Landing from './components/Landing';
-import AboutMe from './components/AboutMe';
-import Resume from './components/Resume';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import './App.css';
-
-const { Header, Content } = Layout;
-
+import { useEffect, useState } from "react";
+import { Button, ConfigProvider, Drawer } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
+import Landing from "./components/Landing";
+import AboutMe from "./components/AboutMe";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Resume from "./components/Resume";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import "./App.css";
+const sections = [
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "resume", label: "Skills & education" },
+  { id: "contact", label: "Contact" },
+];
 export default function App() {
-  const [activeSection, setActiveSection] = useState('landing');
-  const [showHeader, setShowHeader] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("home");
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-20% 0px -55% 0px" },
+    );
+    document
+      .querySelectorAll("main > section")
+      .forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerOffset = 64;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-    setMobileMenuOpen(false); // Close mobile menu after clicking
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowHeader(window.scrollY > window.innerHeight * 0.5);
-
-      const sections = ['about', 'resume', 'experience', 'projects', 'contact'];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top >= 0 && rect.top <= window.innerHeight / 2;
-        }
-        return false;
-      });
-
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const menuItems: MenuProps['items'] = [
-    {
-      key: 'about',
-      icon: <UserOutlined />,
-      label: 'About Me',
-      onClick: () => scrollToSection('about'),
-    },
-    {
-      key: 'resume',
-      icon: <ReadOutlined />,
-      label: 'Education', 
-      onClick: () => scrollToSection('resume'),
-    },
-    {
-      key: 'experience',
-      icon: <ExperimentOutlined />,
-      label: 'Experience',
-      onClick: () => scrollToSection('experience'),
-    },
-    {
-      key: 'projects',
-      icon: <ProjectOutlined />,
-      label: 'Projects',
-      onClick: () => scrollToSection('projects'),
-    },
-    {
-      key: 'contact',
-      icon: <ContactsOutlined />,
-      label: 'Contact',
-      onClick: () => scrollToSection('contact'),
-    },
-  ];
-
-  const renderMenu = () => (
-    <Menu
-      mode={isMobile ? "vertical" : "horizontal"}
-      items={menuItems}
-      selectedKeys={[activeSection]}
-      className="nav-menu"
-    />
+  const links = (
+    <nav aria-label="Main navigation">
+      {sections.map((section) => (
+        <a
+          key={section.id}
+          href={`#${section.id}`}
+          aria-current={active === section.id ? "location" : undefined}
+          onClick={() => setOpen(false)}
+        >
+          {section.label}
+        </a>
+      ))}
+    </nav>
   );
-
   return (
-    <Layout className="layout">
-      <Header className="header visible">
-        <div className="header-inner">
-          <div className="logo">Rose Portfolio</div>
-
-          {isMobile ? (
-            <>
-              <Button
-                className="mobile-menu-button"
-                icon={<MenuOutlined />}
-                onClick={() => setMobileMenuOpen(true)}
-              />
-
-              <Drawer
-                title="Menu"
-                placement="right"
-                onClose={() => setMobileMenuOpen(false)}
-                open={mobileMenuOpen}
-                className="mobile-menu-drawer"
-              >
-                {renderMenu()}
-              </Drawer>
-            </>
-          ) : (
-            renderMenu()
-          )}
-        </div>
-      </Header>
-
-      <div className="landing-section">
-        <Landing />
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#135e50",
+          fontFamily:
+            'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+          borderRadius: 10,
+        },
+      }}
+    >
+      <div className="portfolio">
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        <header className="site-header">
+          <div className="shell header-inner">
+            <a className="brand" href="#home" aria-label="Rose Wei, home">
+              rw<span>.</span>
+            </a>
+            <div className="desktop-nav">{links}</div>
+            <Button
+              className="menu-toggle"
+              icon={<MenuOutlined />}
+              aria-label="Open navigation menu"
+              aria-expanded={open}
+              onClick={() => setOpen(true)}
+            />
+            <Drawer
+              title="Navigation"
+              open={open}
+              onClose={() => setOpen(false)}
+              className="navigation-drawer"
+            >
+              {links}
+            </Drawer>
+          </div>
+        </header>
+        <main id="main">
+          <section id="home">
+            <Landing />
+          </section>
+          <section id="about">
+            <AboutMe />
+          </section>
+          <section id="experience">
+            <Experience />
+          </section>
+          <section id="projects">
+            <Projects />
+          </section>
+          <section id="resume">
+            <Resume />
+          </section>
+          <section id="contact">
+            <Contact />
+          </section>
+        </main>
+        <Footer />
       </div>
-
-        <section id="about" className="">
-          <AboutMe />
-        </section>
-
-        <section id="resume" className="">
-          <Resume />
-        </section>
-
-        <section id="experience" className="">
-          <Experience />
-        </section>
-
-        <section id="projects" className="">
-          <Projects />
-        </section>
-      
-      
-      {/* Contact section outside Content */}
-      <section id="contact" className="contact-section">
-        <Contact />
-      </section>
-      
-      {/* Footer */}
-      <Footer />
-    </Layout>
+    </ConfigProvider>
   );
 }
