@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button, ConfigProvider, Drawer } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import Landing from "./components/Landing";
@@ -17,6 +18,13 @@ const sections = [
   { id: "contact", label: "Contact" },
 ];
 export default function App() {
+  const reducedMotion = useReducedMotion();
+  const reveal = {
+    initial: false as const,
+    whileInView: reducedMotion ? {} : { opacity: [0.65, 1], y: [16, 0] },
+    viewport: { once: true, amount: 0.1 },
+    transition: { duration: 0.5 },
+  };
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   useEffect(() => {
@@ -51,7 +59,7 @@ export default function App() {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: "#135e50",
+          colorPrimary: "#9A402B",
           fontFamily:
             'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
           borderRadius: 10,
@@ -89,21 +97,21 @@ export default function App() {
           <section id="home">
             <Landing />
           </section>
-          <section id="about">
+          <motion.section id="about" {...reveal}>
             <AboutMe />
-          </section>
-          <section id="experience">
+          </motion.section>
+          <motion.section id="experience" {...reveal}>
             <Experience />
-          </section>
-          <section id="projects">
+          </motion.section>
+          <motion.section id="projects" {...reveal}>
             <Projects />
-          </section>
-          <section id="resume">
+          </motion.section>
+          <motion.section id="resume" {...reveal}>
             <Resume />
-          </section>
-          <section id="contact">
+          </motion.section>
+          <motion.section id="contact" {...reveal}>
             <Contact />
-          </section>
+          </motion.section>
         </main>
         <Footer />
       </div>

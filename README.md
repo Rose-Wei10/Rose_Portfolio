@@ -19,7 +19,7 @@ Coming Soon
 - Interactive project showcase
 - Professional experience timeline
 - Resume download functionality
-- Functional contact form
+- Direct email contact
 - Mobile-friendly design
 - Glassmorphism-inspired styling
 - Section-based animations
@@ -54,8 +54,8 @@ Coming Soon
 - Modern project layout
 
 ## Contact
-- Functional contact form
-- Email integration using FormSubmit
+- Direct email contact
+- Email, GitHub, and LinkedIn links
 - Social media links
 
 ---
@@ -132,9 +132,9 @@ npm run dev
 
 ---
 
-# Contact Form
+# Contact
 
-The contact form is powered by FormSubmit and sends messages directly to my email without requiring a backend server or database.
+Contact opens an email draft to weir0210@gmail.com in the visitor’s email app. No form submission service is used.
 
 ---
 
@@ -161,8 +161,8 @@ I enjoy building scalable full-stack applications, backend systems, and interact
 ## Rose Wei
 
 - GitHub: https://github.com/Rose-Wei10
-- LinkedIn: https://www.linkedin.com/in/rose-wei/
-- Email: rosewei6@gmail.com
+- LinkedIn: https://www.linkedin.com/in/rong-wei10/
+- Email: weir0210@gmail.com
 
 ---
 

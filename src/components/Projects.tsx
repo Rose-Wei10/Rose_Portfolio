@@ -17,9 +17,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <div className="project-placeholder" aria-hidden="true">
             <span>APPLICATION / 0{index + 1}</span>
             <strong>
-              Interview
+              Career
               <br />
-              Tracker<span className="cursor">_</span>
+              Path<span className="cursor">_</span>
             </strong>
             <div className="mini-tags">
               <span>Applications</span>
@@ -33,11 +33,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <h3>{project.title}</h3>
         <p className="project-period">{project.period}</p>
         <p>{project.description}</p>
-        <ul className="detail-list">
-          {project.points.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
         <ul className="tags">
           {project.tech.map((tech) => (
             <li key={tech}>{tech}</li>
@@ -65,6 +60,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </a>
           )}
         </div>
+        <details className="project-details">
+          <summary aria-label={`${project.title}: project details`}>Project details</summary>
+          <ul className="detail-list">
+            {project.points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </details>
       </div>
     </article>
   );
