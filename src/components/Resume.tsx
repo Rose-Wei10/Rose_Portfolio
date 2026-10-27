@@ -10,7 +10,7 @@ const skills: Record<string, string[]> = {
     "HTML",
     "CSS",
   ],
-  Frontend: ["React", "Next.js", "React Native", "Expo", "Vite"],
+  Frontend: ["React", "Next.js", "React Native", "Expo", "Vite", "Dash", "Plotly"],
   "Backend & data": [
     "Node.js",
     "Express",
@@ -32,6 +32,8 @@ const skills: Record<string, string[]> = {
     "Clerk",
     "Stripe",
     "Jest",
+    "Playwright",
+    "GitHub Actions",
   ],
 };
 export default function Resume() {
@@ -57,7 +59,7 @@ export default function Resume() {
         <article>
           <p className="eyebrow">JUNE 2025 — PRESENT</p>
           <h3>University of Illinois Urbana-Champaign</h3>
-          <p>Master of Science in Computer Science</p>
+          <p>Master of Computer Science</p>
         </article>
         <article>
           <p className="eyebrow">SEPT 2020 — JUNE 2024</p>

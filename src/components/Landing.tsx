@@ -18,7 +18,7 @@ export default function Landing() {
         </p>
         <p className="hero-detail">
           React and TypeScript on the frontend. Node.js, APIs, and data behind
-          the scenes. Currently pursuing my M.S. in Computer Science at UIUC.
+          the scenes. Currently pursuing my Master of Computer Science at UIUC.
         </p>
         <div className="actions">
           <a className="button primary" href="#projects">
@@ -37,7 +37,7 @@ export default function Landing() {
             <GithubOutlined /> GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/rose-wei/"
+            href="https://www.linkedin.com/in/rong-wei10/"
             target="_blank"
             rel="noreferrer"
           >
