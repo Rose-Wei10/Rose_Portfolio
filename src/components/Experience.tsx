@@ -4,7 +4,7 @@ export default function Experience() {
   return (
     <div className="shell section-pad">
       <SectionHeading
-        label="02 / EXPERIENCE"
+        label="03 / EXPERIENCE"
         title="Building products. Guiding others."
       />
       <div className="experience-list">

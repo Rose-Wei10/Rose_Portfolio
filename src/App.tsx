@@ -12,9 +12,10 @@ import Footer from "./components/Footer";
 import "./App.css";
 const sections = [
   { id: "about", label: "About" },
+  { id: "education", label: "Education" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
-  { id: "resume", label: "Skills & education" },
+  { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
 ];
 export default function App() {
@@ -100,14 +101,17 @@ export default function App() {
           <motion.section id="about" {...reveal}>
             <AboutMe />
           </motion.section>
+          <motion.section id="education" {...reveal}>
+            <Resume educationOnly />
+          </motion.section>
           <motion.section id="experience" {...reveal}>
             <Experience />
           </motion.section>
           <motion.section id="projects" {...reveal}>
             <Projects />
           </motion.section>
-          <motion.section id="resume" {...reveal}>
-            <Resume />
+          <motion.section id="skills" {...reveal}>
+            <Resume skillsOnly />
           </motion.section>
           <motion.section id="contact" {...reveal}>
             <Contact />
