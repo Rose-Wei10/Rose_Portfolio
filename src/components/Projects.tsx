@@ -76,7 +76,7 @@ export default function Projects() {
   return (
     <div className="shell section-pad">
       <SectionHeading
-        label="03 / SELECTED WORK"
+        label="04 / SELECTED WORK"
         title="Ideas turned into applications."
         description="Full-stack workflows, mobile experiences, and data-rich interfaces."
       />

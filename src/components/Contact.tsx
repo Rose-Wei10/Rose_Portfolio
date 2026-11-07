@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <div className="shell section-pad contact-content">
       <SectionHeading
-        label="05 / CONTACT"
+        label="06 / CONTACT"
         title="Let’s build something together."
         description="Get in touch about software engineering opportunities, collaborations, or a project you have in mind."
       />

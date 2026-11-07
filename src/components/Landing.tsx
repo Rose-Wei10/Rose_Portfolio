@@ -7,12 +7,16 @@ import {
 export default function Landing() {
   return (
     <div className="hero shell">
-      <div className="hero-copy">
+      <header className="hero-heading">
         <p className="eyebrow">FULL STACK DEVELOPER · SOFTWARE ENGINEER</p>
         <h1>
-          Hi, I’m <span>Rong Wei.</span>
+          Hi, I’m <span className="animated-name" aria-label="Rong Wei.">{Array.from("Rong Wei.").map((letter, index) => (
+            <span aria-hidden="true" key={index} style={{ animationDelay: `${index * 65}ms` }}>{letter === " " ? "\u00a0" : letter}</span>
+          ))}</span>
           <small>You can call me Rose.</small>
         </h1>
+      </header>
+      <div className="hero-copy">
         <p className="hero-summary">
           I build thoughtful applications, from the interface to the database.
         </p>

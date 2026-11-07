@@ -36,11 +36,35 @@ const skills: Record<string, string[]> = {
     "GitHub Actions",
   ],
 };
-export default function Resume() {
+export default function Resume({
+  educationOnly = false,
+}: {
+  educationOnly?: boolean;
+}) {
+  if (educationOnly) {
+    return (
+      <div className="shell section-pad education-panel">
+        <SectionHeading label="02 / EDUCATION" title="Education" />
+        <div className="education-grid">
+          <article>
+            <p className="eyebrow">JUNE 2025 — PRESENT</p>
+            <h3>University of Illinois Urbana-Champaign</h3>
+            <p>Master of Computer Science</p>
+          </article>
+          <article>
+            <p className="eyebrow">SEPT 2020 — JUNE 2024</p>
+            <h3>Western Washington University</h3>
+            <p>Bachelor of Science in Computer Science</p>
+            <p>GPA: 3.61 / 4.00</p>
+          </article>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="shell section-pad">
       <SectionHeading
-        label="04 / TOOLKIT & EDUCATION"
+        label="05 / TOOLKIT & EDUCATION"
         title="The tools. The foundations."
       />
       <div className="skills-grid">
@@ -54,19 +78,6 @@ export default function Resume() {
             </ul>
           </article>
         ))}
-      </div>
-      <div className="education-grid">
-        <article>
-          <p className="eyebrow">JUNE 2025 — PRESENT</p>
-          <h3>University of Illinois Urbana-Champaign</h3>
-          <p>Master of Computer Science</p>
-        </article>
-        <article>
-          <p className="eyebrow">SEPT 2020 — JUNE 2024</p>
-          <h3>Western Washington University</h3>
-          <p>Bachelor of Science in Computer Science</p>
-          <p>GPA: 3.61 / 4.00</p>
-        </article>
       </div>
     </div>
   );
